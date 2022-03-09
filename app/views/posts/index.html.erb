@@ -1,3 +1,19 @@
 <div class="new-post-link">
   <%= link_to "New Post", new_post_path %>
 </div>
+
+<div class="posts-list">
+  <% @posts.each do |post| %>
+    <div class="post-title">
+      <strong>Title:</strong>
+      <%= post.title %>
+    </div>
+    <div class="post-description">
+      <strong>Description:</strong>
+      <%= post.description %>
+    </div>
+    <div class="post-show">
+      <%= link_to "Show", post_path(post) %>
+    </div>
+  <% end %>
+</div>
