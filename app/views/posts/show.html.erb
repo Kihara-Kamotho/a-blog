@@ -12,7 +12,11 @@
   <div class="edit-post">
     <%= link_to "Edit Post", edit_post_path %>
   </div>
-  
+
+  <div class="delete-post">
+    <%= link_to "Delete Post", post_path, method: :delete, data: {confirm: "Are you sure?"} %>
+  </div>
+
   <div class="posts-path">
     <%= link_to 'posts', posts_path %>
   </div>

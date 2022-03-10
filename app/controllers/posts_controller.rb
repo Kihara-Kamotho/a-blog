@@ -34,6 +34,15 @@ class PostsController < ApplicationController
       flash.now[:alert] = "Post not updated"
     end
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect_to posts_path
+      flash.now[:alert] = "Post has been deleted"
+    end
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :description)
