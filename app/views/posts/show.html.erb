@@ -38,8 +38,8 @@
         <%= comment.content %>
         <ul>
           <li><%= link_to "Show", post_comment_path(@post, comment) %></li>
-          <li><%= link_to "Edit", edit_post_comment_path(@post, comment) %></li>
-          <li><%= link_to "Delete", post_comment_path(@post, comment), method: :delete %></li>
+          <li><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></li>
+          <li><%= link_to "Delete Comment", post_comment_path(@post, comment), method: :delete %></li>
         </ul>
       </div>
     <% end %>

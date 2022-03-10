@@ -20,6 +20,21 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
   end
 
+  def edit
+    @comment = @post.comments.find(params[:id])
+  end
+
+  def update
+    @comment = @post.comments.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to post_comment_path(@post, @comment)
+      flash.now[:notice] = "Comment successfully updated"
+    else
+      render :edit
+      flash.now[:alert] = "Comment not updated"
+    end
+  end
+
   private
   def set_post
     @post = Post.find(params[:post_id])
