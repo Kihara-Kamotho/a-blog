@@ -28,7 +28,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to @post, flash: { notice: "Post successfully updated"}
+      redirect_to @post
+      flash.now[:notice] = "Post created successfully"
     else
       render :edit
       flash.now[:alert] = "Post not updated"
