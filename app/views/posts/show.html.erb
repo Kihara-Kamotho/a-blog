@@ -17,9 +17,6 @@
     <%= link_to "Delete Post", post_path, method: :delete, data: {confirm: "Are you sure?"} %>
   </div>
 
-  <div class="post-comment">
-    <%= link_to "New Comment", new_post_comment_path(@post) %>
-  </div>
 
   <div class="posts-path">
     <%= link_to 'posts', posts_path %>
@@ -30,6 +27,11 @@
   <!-- render comment partial -->
 </div>
 
+
+  <div class="post-comment">
+    <%= link_to "New Comment", new_post_comment_path(@post) %>
+  </div>
+
 <div class="post-comments">
   <h3>Comments</h3>
   <div class="render-post-comments">
@@ -37,7 +39,7 @@
       <div class="comment-content">
         <%= comment.content %>
         <ul>
-          <li><%= link_to "Show", post_comment_path(@post, comment) %></li>
+          <!-- <li><%= link_to "Show", post_comment_path(@post, comment) %></li> -->
           <li><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></li>
           <li><%= link_to "Delete Comment", post_comment_path(@post, comment), method: :delete %></li>
         </ul>
