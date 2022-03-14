@@ -76,3 +76,5 @@ end
 
 #
 gem "bootstrap"
+#
+gem "bootstrap-form"

@@ -1,19 +1,25 @@
-<div class="new-post-link">
+<!-- new post link -->
+<!-- <div class="new-post-link">
   <%= link_to "New Post", new_post_path %>
-</div>
+</div> -->
 
-<div class="posts-list">
-  <% @posts.each do |post| %>
-    <div class="post-title">
-      <strong>Title:</strong>
-      <%= post.title %>
+<div class="">
+  <div class="p-4 posts-list">
+    <% @posts.each do |post| %>
+    <div class="card p-4 m-4" style="width: 75%">
+      <div class="card-header post-title">
+        <b><%= post.title %></b>
+      </div>
+      <div class="card-body post-description">
+        <%= post.description %>
+      </div>
+      <div class="post-show">
+        <%= link_to "Show", post_path(post), class: "btn btn-success" %>
+      </div>
     </div>
-    <div class="post-description">
-      <strong>Description:</strong>
-      <%= post.description %>
-    </div>
-    <div class="post-show">
-      <%= link_to "Show", post_path(post) %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+  <div class="row">
+    <p>Another row</p>
+  </div>
 </div>
