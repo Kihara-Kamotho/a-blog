@@ -14,7 +14,8 @@ gem "sqlite3", "~> 1.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
-
+#
+gem 'sass-rails'
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
@@ -72,3 +73,6 @@ group :test do
   gem "webdrivers"
   gem 'factory_bot_rails', '~> 6.2'
 end
+
+#
+gem "bootstrap"
