@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to post_comment_path(@post, @comment)
       flash.now[:notice] = "Comment created successfully"
+      CommentsMailer.submitted(@comment).deliver_later
     else
       render :new
       flash.now[:alert] = "Comment not created"
