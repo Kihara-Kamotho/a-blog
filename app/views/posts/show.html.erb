@@ -29,7 +29,7 @@
         </div> -->
 
         <!-- posts-path -->
-        <!-- <div class="posts-path"> 
+        <!-- <div class="posts-path">
           <%= link_to 'posts', posts_path %>
         </div> -->
       </div>
@@ -50,13 +50,13 @@
         <h3>Comments</h3>
         <div class="render-post-comments">
           <% @post.comments.each do |comment| %>
-            <div class="comment-content">
+            <div class="comment-content border-bottom-2">
               <%= comment.content %>
               <ul>
                 <!-- <li><%= link_to "Show", post_comment_path(@post, comment) %></li> -->
-                <p>Posted <%= time_tag comment.created_at, "data-local": "time ago" %></p>
-                <%= link_to "Edit Comment", edit_post_comment_path(@post, comment), class: "m-4 btn btn-success" %>
-                <%= link_to "Delete Comment", post_comment_path(@post, comment), method: :delete, class: "btn btn-danger" %>
+                <p>Posted <%= time_tag comment.created_at, "data-local": "time-ago" %></p>
+                <%= link_to "Edit", edit_post_comment_path(@post, comment), class: "m-4 btn btn-success" %>
+                <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, class: "btn btn-danger" %>
               </ul>
             </div>
           <% end %>
