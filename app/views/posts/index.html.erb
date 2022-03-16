@@ -1,7 +1,7 @@
 <!-- new post link -->
-<!-- <div class="new-post-link">
+<div class="new-post-link">
   <%= link_to "New Post", new_post_path %>
-</div> -->
+</div>
 
 <div class="">
   <div class="p-4 posts-list">
@@ -11,7 +11,17 @@
         <b><%= post.title %></b>
       </div>
       <div class="card-body post-description">
-        <%= post.description %>
+        <div class="d-inline-block">
+          <% if post.image.attached? %>
+              <%= image_tag (post.thumbnail) %>
+            <% else %>
+              <p>No image attached to the post</p>
+          <% end %>
+          <span class="flex display-inline"><%= post.description %></span>
+        </div>
+      </div>
+      <div class="">
+        <p>Posted <%= time_tag post.created_at, "data-local": "time ago" %></p>
       </div>
       <div class="post-show">
         <%= link_to "Show", post_path(post), class: "btn btn-success" %>

@@ -5,7 +5,11 @@
   </div>
   <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.rich_text_area :description %>
+  </div>
+  <div class="post-image">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
 
   <%= form.submit %>
