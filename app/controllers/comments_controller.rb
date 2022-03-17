@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_post
+  def index
+    @comments = Comment.all
+  end
 
   def new
     @comment = @post.comments.build
@@ -8,7 +11,8 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.build(comment_params)
     if @comment.save
-      redirect_to post_comment_path(@post, @comment)
+      # redirect_to post_comment_path(@post, @comment)
+      redirect_to post_path(@post)
       flash.now[:notice] = "Comment created successfully"
     else
       render :new

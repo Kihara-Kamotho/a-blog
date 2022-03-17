@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_rich_text :title
   has_rich_text :description
   has_one_attached :image
 
