@@ -10,17 +10,20 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-light container bg-faded py-3 p-4">
-    <div class="">
-      <h1 class="text-center">atom</h1>
+  <body class="bg-light bg-faded">
+    <div class="navigation">
+      <%= render "layouts/nav" %>
     </div>
-    <div class="blog-name">
-      <%= yield %>
+    <div class="container mt-2">
+      <div class="">
+        <h1 class="text-center">atom</h1>
+      </div>
+      <div class="blog-name">
+        <%= yield %>
+      </div>
+    </div>
+    <div class="">
+      <%= render "layouts/footer" %>
     </div>
   </body>
 </html>
-
-
-<div class="blog-name">
-
-</div>
