@@ -8,20 +8,22 @@
     <% @posts.each do |post| %>
     <div class="card p-4 m-4" style="width: 75%">
       <div class="card-header post-title">
-        <b><%= post.title %></b>
+        <h5 class="p-2 text-center"><b><%= post.title %></b></h5>
       </div>
       <div class="card-body post-description">
-        <div class="d-inline-block">
+        <div class="p-2 d-flex align-items-center">
           <% if post.image.attached? %>
               <%= image_tag (post.thumbnail) %>
             <% else %>
               <p>No image attached to the post</p>
           <% end %>
-          <span class="flex display-inline"><%= post.description %></span>
+          <div class="p-4">
+            <span class="flex display-inline"><%= post.description %></span>
+          </div>
         </div>
       </div>
       <div class="">
-        <p>Posted <%= time_tag post.created_at, "data-local": "time ago" %></p>
+        <p>Posted <%= time_tag post.created_at, "data-local": "time-ago" %></p>
       </div>
       <div class="post-show">
         <%= link_to "Show", post_path(post), class: "btn btn-success" %>

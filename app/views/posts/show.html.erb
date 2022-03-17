@@ -1,7 +1,4 @@
-<div class="container bg-faded py-3">
-  <div class="blog-name">
-    <h1 class="text-center">name</h1>
-  </div>
+<div class="">
   <div class="row">
     <div class="text-center post-img">
       <% if @post.image.attached? %>
@@ -24,12 +21,12 @@
         </div>
 
         <!-- delete post -->
-        <!-- <div class="delete-post">
+        <div class="delete-post">
           <%= link_to "Delete Post", post_path, method: :delete, data: {confirm: "Are you sure?"} %>
-        </div> -->
+        </div>
 
         <!-- posts-path -->
-        <!-- <div class="posts-path"> 
+        <!-- <div class="posts-path">
           <%= link_to 'posts', posts_path %>
         </div> -->
       </div>
@@ -45,18 +42,18 @@
     </div>
   </div>
   <div class="row justify-content-start">
-    <div class="col-6 shadow-sm p-4 mt-4 bg-white pt-4">
-      <div class="post-comments">
+    <div class="col-6 shadow-sm p-4 bg-white">
+      <div class="text-center post-comments">
         <h3>Comments</h3>
-        <div class="render-post-comments">
+        <div class="p-2 m-2 render-post-comments">
           <% @post.comments.each do |comment| %>
             <div class="comment-content">
               <%= comment.content %>
               <ul>
                 <!-- <li><%= link_to "Show", post_comment_path(@post, comment) %></li> -->
-                <p>Posted <%= time_tag comment.created_at, "data-local": "time ago" %></p>
-                <%= link_to "Edit Comment", edit_post_comment_path(@post, comment), class: "m-4 btn btn-success" %>
-                <%= link_to "Delete Comment", post_comment_path(@post, comment), method: :delete, class: "btn btn-danger" %>
+                <p>Posted <%= time_tag comment.created_at, "data-local": "time-ago" %></p>
+                <%= link_to "Edit", edit_post_comment_path(@post, comment), class: "m-4 btn btn-success" %>
+                <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, class: "btn btn-danger" %>
               </ul>
             </div>
           <% end %>
