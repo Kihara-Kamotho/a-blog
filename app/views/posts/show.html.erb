@@ -22,7 +22,7 @@
 
         <!-- delete post -->
         <div class="delete-post">
-          <%= link_to "Delete Post", post_path, method: :delete, data: {confirm: "Are you sure?"} %>
+          <%= link_to "Delete Post", post_path(@post), method: :destroy, data: {confirm: "Are you sure?"} %>
         </div>
 
         <!-- posts-path -->
@@ -52,8 +52,14 @@
               <ul>
                 <!-- <li><%= link_to "Show", post_comment_path(@post, comment) %></li> -->
                 <p>Posted <%= time_tag comment.created_at, "data-local": "time-ago" %></p>
+                <!-- edited at-->
+                <% if comment.created_at == comment.updated_at? %>
+                  <p>do not display</p>
+                  <% else %>
+                  <p>Edited <%= time_tag comment.updated_at, "data-local": "time-ago" %></p>
+                <% end %>
                 <%= link_to "Edit", edit_post_comment_path(@post, comment), class: "m-4 btn btn-success" %>
-                <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, class: "btn btn-danger" %>
+                <%= link_to "Delete", post_comment_path(@post, comment), method: :destroy, class: "btn btn-danger" %>
               </ul>
             </div>
           <% end %>

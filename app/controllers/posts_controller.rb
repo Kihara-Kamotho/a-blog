@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to @post, flash: { notice: "Post created successfully"}
+      redirect_to posts_path, flash: { notice: "Post created successfully"}
     else
       render :new
       flash.now[:alert] = "Post not created"
