@@ -1,78 +1,117 @@
-<div class="">
-  <div class="row">
-    <div class="text-center post-img">
-      <% if @post.image.attached? %>
-        <%= image_tag(@post.image, width: "100%", height: "500px") %>
-      <% end %>
-    </div>
-  </div>
-  <div class=" pt-4 post-title">
-    <h2><%= @post.title %></h2>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="shadow-sm mt-4 mb-4 bg-white text-center pt-4">
-        <p><%= @post.description %></p>
-      </div>
-      <div class="post-links">
-        <!-- edit post -->
-        <div class="edit-post">
-          <%= link_to "Edit Post", edit_post_path %>
+<main>
+  <div class="container">
+    <section class="text-center">
+      <div class="card bg-white mb-4">
+        <div class="row">
+          <div class="col">
+            <strong><h3 class="text-center p-4"><%= @post.title %></h3></strong>
+          </div>
         </div>
-
-        <!-- delete post -->
-        <div class="delete-post">
-          <%= link_to "Delete Post", post_path(@post), method: :destroy, data: {confirm: "Are you sure?"} %>
+        <!-- image -->
+        <div class="row">
+          <div class="rounded post-img mb-4">
+            <% if @post.image.attached? %>
+              <%= image_tag(@post.image, width: "65%", height: "400px") %>
+            <% else %>
+              <p>No image attached</p>
+            <% end %>
+          </div>
         </div>
-
-        <!-- posts-path -->
-        <!-- <div class="posts-path">
-          <%= link_to 'posts', posts_path %>
-        </div> -->
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <!-- comment partial -->
-    <div class="p-4 mt-4 pt-" style="width: "500px">
-      <div class="render-comment-form">
-        <!-- render comment partial -->
-        <%= render "comments/form", post: @post %>
-      </div>
-    </div>
-  </div>
-  <div class="row justify-content-start">
-    <div class="col-6 shadow-sm p-4 bg-white">
-      <div class="text-center post-comments">
-        <h3>Comments</h3>
-        <div class="p-2 m-2 render-post-comments">
-          <% @post.comments.each do |comment| %>
-            <div class="comment-content border-bottom-2">
-              <%= comment.content %>
-              <ul>
-                <!-- <li><%= link_to "Show", post_comment_path(@post, comment) %></li> -->
-                <p>Posted <%= time_tag comment.created_at, "data-local": "time-ago" %></p>
-                <!-- edited at-->
-                <% if comment.created_at == comment.updated_at? %>
-                  <p>do not display</p>
-                  <% else %>
-                  <p>Edited <%= time_tag comment.updated_at, "data-local": "time-ago" %></p>
-                <% end %>
-                <%= link_to "Edit", edit_post_comment_path(@post, comment), class: "m-4 btn btn-success" %>
-                <%= link_to "Delete", post_comment_path(@post, comment), method: :destroy, class: "btn btn-danger" %>
-              </ul>
+        <!-- card body -->
+        <div class="card-body">
+          <hr>
+          <!-- grid layout -->
+          <div class="row">
+            <div class="col-8 pt-4 pb-4">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <div class="d-flex justify-content-start">
+                      <strong class="ml-2">Published <span class="font-italic"><%= time_tag @post.created_at, "data-local": "time-ago" %></span></strong>
+                    </div>
+                    <div class="p-4 text-monospace">
+                      <p>African tech talent startup, TalentQL, has today, October 21, 2021, launched AltSchool Africa. The programme is the startup’s latest attempt to create a tech talent pipeline following the launch of Pipeline, it’s mentorship and upskilling program for senior developers.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- render comment form -->
+                <div class="row">
+                  <div class="col">
+                    <div class="d-flex justify-content-start">
+                      <%= render "comments/form", post: @post, width: "100%" %>
+                    </div>
+                  </div>
+                </div>
+                <!-- comments count -->
+                <div class="row">
+                  <div class="col">
+                    <div class="d-flex justify-content-start">
+                      <p class="px-4"><%= @post.comments.count %><strong class="px-2">Comments</strong></p>
+                    </div>
+                  </div>
+                </div>
+                <!-- render comments -->
+                <div class="row">
+                  <div class="col">
+                    <% @post.comments.each do |comment| %>
+                      <div class="d-flex justify-content-start px-4 mx-4">
+                        <div class="d-dlex flex-column py-2">
+                          <%= comment.content %>
+                          <div class="">
+                            <span><strong>Posted by <span>user </span><%= time_tag comment.created_at, "data-local": "time-ago"%></strong></span>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
-          <% end %>
+            <div class="col-4 pt-4 pb-4">
+              <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <div class="d-flex justify-content-start">
+                      <strong>Editor`s pick <span></span></strong>
+                    </div>
+                    <div class="p-4">
+                      <p>As Africa’s tech ecosystem has grown, a number of organizations have sprung up to supply tech talent for startups. After an initial focus on building entry-level talent led by the likes of Andela, the demand for senior talent meant that for a while, training entry-level engineers took a backseat.</p>
+                    </div>
+                    <!-- author -->
+                    <div class="card">
+                      <div class="row">
+                        <div class="d-flex justify-content-center pt-2">
+                          <h5>About</h5>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="p-2 d-flex justify-content-center">
+                          <p>image goes here</p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="px-4 d-flex justify-content-start">
+                          <p class="text-muted">
+                            Hey, my name is Alphan Kihara and I love Ruby.
+                            This blog aims to walk with you through my journey of web development.
+                            Here I document technologies as I learn them.
+                            For any support or enquiries, hit me up on my socials, Thanks.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="px-2 pb-4 d-flex justify-content-center">
+                          socials links go here
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
-</div>
-
-
-
-
-
-  <!-- <div class="post-comment">
-    <%= link_to "New Comment", new_post_comment_path(@post) %>
-  </div> -->
+</main>

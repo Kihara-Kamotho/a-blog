@@ -11,19 +11,14 @@
   </head>
 
   <body class="bg-light bg-faded">
-    <div class="navigation">
+    <div class="row mb-4">
       <%= render "layouts/nav" %>
     </div>
-    <div class="container mt-2">
-      <div class="">
-        <h1 class="text-center">atom</h1>
-      </div>
-      <div class="blog-name">
+    <div class="row mt-4">
         <%= yield %>
-      </div>
     </div>
-    <div class="">
-      <%= render "layouts/footer" %>
+    <div class="footer">
+      <%# <%= render "layouts/footer" %> %>
     </div>
   </body>
 </html>
