@@ -8,7 +8,7 @@ RSpec.feature "user can delete comment" do
     # visit posts#show
     visit post_path(post)
     # click btn delete
-    click_link "Delete Comment"
+    click_button "Delete Comment"
     # assertion
     expect(page).to have_content "Comment has been deleted"
   end

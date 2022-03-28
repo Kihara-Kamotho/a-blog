@@ -7,7 +7,7 @@ RSpec.feature "user can delete existing post" do
     # visit posts#show
     visit post_path(post)
     # click link delete post
-    click_link "Delete Post"
+    click_button "Delete Post"
 
     # expect(page.current_url).to eq posts_path
     expect(page).to have_content "Post has been deleted"

@@ -11,7 +11,8 @@ RSpec.feature "user can view comment to a post" do
 
     expect(page).to have_content "Post one"
     # show post comment
-    click_link "Show"
+    # drop the following link to show, not necessary
+    # click_link "Show"
     # assertion
     expect(page).to have_content "Hello world"
   end
