@@ -80,3 +80,5 @@ gem "bootstrap"
 gem "bootstrap-form"
 #
 gem 'actiontext', '~> 7.0', '>= 7.0.2.3'
+# devise
+gem "devise"

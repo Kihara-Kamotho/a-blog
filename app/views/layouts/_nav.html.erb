@@ -6,6 +6,15 @@
       <%= image_tag("icons8-home.svg") %>
     </a>
   </div>
+  <div class="pr-4 d-flex justify-content-end">
+    <% if user_signed_in? %>
+      <span><%= current_user.email %></span>
+      <span><%= link_to "Sign out", destroy_user_session_url ,class: "text-decoration-none text-black"%></span>
+    <% else %>
+      <span class="px-2"><%= link_to "Sign in", new_user_session_url, class: "text-decoration-none text-black"%></span>
+      <span class="px-2"><%= link_to "Sign up", new_user_registration_url, class: "text-decoration-none text-black"%></span>
+    <% end %>
+  </div>
 </nav>
   <!-- Navbar -->
 </div>
