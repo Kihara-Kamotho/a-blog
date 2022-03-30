@@ -9,7 +9,7 @@ RSpec.feature "user can create comment to a post" do
     # create comment
     click_link "New Comment"
 
-    fill_in "Content", with: "Comment one"
+    fill_in "content", with: "Comment one"
 
     click_button "Create Comment"
   end
