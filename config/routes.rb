@@ -8,8 +8,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  # non-admin routes
   root "posts#index"
-  resources :posts do
+  resources :posts, only: [:index, :show] do
     resources :comments
+  end
+
+  # admin routes
+  namespace :admin do
+    resources :posts, except: [:index, :show] do
+      resources :comments
+    end
   end
 end

@@ -29,9 +29,9 @@
                     <div class="d-flex justify-content-start">
                       <strong class="ml-2">Published <span class="font-italic"><%= time_tag @post.created_at, "data-local": "time-ago" %></span></strong>
                     </div>
-                    <span><%= button_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %></span>
+                    <span><%= button_to "Delete Post", admin_post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "delete" %></span>
                     <!-- edit post -->
-                    <span><%= link_to "Edit Post", edit_post_path(@post) %></span>
+                    <span><%= link_to "Edit Post", edit_admin_post_path(@post) %></span>
                     <div class="p-4 text-monospace">
                       <p>African tech talent startup, TalentQL, has today, October 21, 2021, launched AltSchool Africa. The programme is the startup’s latest attempt to create a tech talent pipeline following the launch of Pipeline, it’s mentorship and upskilling program for senior developers.</p>
                     </div>
