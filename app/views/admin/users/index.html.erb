@@ -10,7 +10,8 @@
   <% @users.each do |user| %>
     <div class="user-email p-2">
       <ul>
-        <li><%= user.email %></li> <strong>Admin: </strong><span><%= user.admin %></span>
+        <li><%= link_to user, [:admin, user] %></li>
+        <!-- <li><%= user.email %></li> <strong>Admin: </strong><span><%= user.admin %></span> -->
       </ul>
     </div>
   <% end %>
