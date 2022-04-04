@@ -1,0 +1,17 @@
+<div class="container">
+  <header>
+    <h3>Users</h3>
+
+    <ul>
+      <li><%= link_to "New User", new_admin_user_path %></li>
+    </ul>
+  </header>
+
+  <% @users.each do |user| %>
+    <div class="user-email p-2">
+      <ul>
+        <li><%= user.email %></li> <strong>Admin: </strong><span><%= user.admin %></span>
+      </ul>
+    </div>
+  <% end %>
+</div>

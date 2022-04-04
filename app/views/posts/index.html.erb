@@ -15,6 +15,7 @@
         <div class="new-post">
           <% admins_only do %>
             <ul class="actions">
+              <%= link_to "Admin", admin_root_path %>
               <li><%= link_to "New Post", new_admin_post_path, class: "new" %></li>
             </ul>
           <% end %>
