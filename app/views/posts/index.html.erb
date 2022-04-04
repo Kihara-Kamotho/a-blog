@@ -13,7 +13,12 @@
         </div>
         <!-- new post path -->
         <div class="new-post">
-          <%= link_to "New Post", new_admin_post_path, class: "new" %>
+          <% admins_only do %>
+            <ul class="actions">
+              <li><%= link_to "New Post", new_admin_post_path, class: "new" %></li>
+            </ul>
+          <% end %>
+
         </div>
       </div>
     </div>

@@ -8,8 +8,8 @@
   </div>
   <div class="pr-4 d-flex justify-content-end">
     <% if user_signed_in? %>
-      <span><%= current_user.email %></span>
-      <span><%= link_to "Sign out", destroy_user_session_url ,class: "text-decoration-none text-black"%></span>
+      <span class="px-2 pt-2"><%= current_user.email %></span>
+      <span><%= button_to "Sign out", destroy_user_session_url, method: :delete, class: "delete", class: "btn btn-danger mx-2"%></span>
     <% else %>
       <span class="px-2"><%= link_to "Sign in", new_user_session_url, class: "text-decoration-none text-black"%></span>
       <span class="px-2"><%= link_to "Sign up", new_user_registration_url, class: "text-decoration-none text-black"%></span>
@@ -17,4 +17,3 @@
   </div>
 </nav>
   <!-- Navbar -->
-</div>
