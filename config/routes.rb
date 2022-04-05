@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     # root route for admin
     root "application#index"
     resources :posts, except: [:index, :show]
-    resources :users
+    resources :users do
+      member do
+        patch :archive
+      end
+    end
   end
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
