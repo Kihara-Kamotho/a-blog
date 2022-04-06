@@ -66,8 +66,8 @@
                       <div class="d-flex justify-content-start px-4 mx-4">
                         <div class="d-dlex flex-column py-2">
                           <%= comment.content %>
-                          <span><%= button_to "Delete Comment", post_comment_path(@post, comment), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger"%></span>
-                          <span><%= link_to "Edit Comment", edit_post_comment_path(@post, comment) %></span>
+                          <span><%= button_to "Delete", post_comment_path(@post, comment), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-danger"%></span>
+                          <span><%= link_to "Edit", edit_post_comment_path(@post, comment) %></span>
                           <div class="">
                             <span><strong>Posted by <span>user </span><%= time_tag comment.created_at, "data-local": "time-ago"%></strong></span>
                           </div>

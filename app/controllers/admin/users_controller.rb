@@ -44,11 +44,12 @@ class Admin::UsersController < Admin::ApplicationController
   def archive
     if @user == current_user
       flash[:alert] = "You cannot archive yourself"
+      redirect_to admin_users_path
     else
       @user.archive!
       flash[:notice] = "User has been archived"
+      redirect_to admin_users_path
     end
-    redirect_to admin_users_path
   end
 
   private
